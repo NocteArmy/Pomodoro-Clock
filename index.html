@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	
+  <head>
+    <title>Pomodoro Clock</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+        
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+        
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
+  </head>
+	
+  <body>
+    <header></header>
+
+    <div class="jumbotron-fluid">
+      <div class="container">
+        <div class="row justify-content-center">
+          <h1 class="title">Pomodoro Clock</h1>
+          <p>This page will allow you to choose a session time and break time, and the timers will cycle back and forth between sessions and breaks.</p>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-4 col-md-3 col-lg-2 text-center">
+            <p>BREAK LENGTH</p>
+            <div class="btn-group" role="group" aria-label="Break Setting">
+              <button id="break-minus" type="button" class="btn btn-light mr-1">-</button>
+              <h3 id="break-time" class="mt-3">05</h3>
+              <button id="break-plus" type="button" class="btn btn-light ml-1">+</button>
+            </div>
+          </div>
+          <div class="col-3 col-md-2 col-lg-1 text-center">
+            <button id="reset" type="button" class="btn btn-dark">Reset</button>
+          </div>
+          <div class="col-4 col-md-3 col-lg-2 text-center">
+            <p>SESSION LENGTH</p>
+            <div class="btn-group" role="group" aria-label="Break Setting">
+              <button id="session-minus" type="button" class="btn btn-light mr-1">-</button>
+              <h3 id="session-time" class="mt-3">25</h3>
+              <button id="session-plus" type="button" class="btn btn-light ml-1">+</button>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center timer-area">
+          <h2 id="timer-title">Session</h2>
+          <h2 id="timer">25:00</h2>
+          <div class="progress bg-secondary">
+            <div id="timer-progress" class="progress-bar bg-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer></footer>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	  <script src="script.js"></script>
+  </body>
+    
+</html>
