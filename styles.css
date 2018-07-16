@@ -1,8 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:100);
 
 .jumbotron-fluid {
-  background: #EDF2F4;
-  padding: 115px 0;
+  min-height: 100vh;
+  background: rgb(140, 33, 49);
+  color: white;
+  padding: 100px 0;
 }
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Roboto', sans-serif;
@@ -13,38 +15,45 @@ p {
   font-size: 16px;
   font-weight: 100;
 }
-a {
-  color: #c18934;
+h1 + p {
+  margin-bottom: 50px;
 }
 .title {
   font-weight: 700;
   text-align: center;
 }
-.btn-dark {
-  color: #c18934;
-  background: #2B2D42;
-  margin-top: 53px;
-}
-.btn-dark:hover {
-  text-decoration: none;
-  color: #c18934;
-  background: #2B2D42;
-}
-.btn-light {
+.plus-minus {
   background-color: transparent;
-  border-color: transparent;
-  font-size: 25px;
+  color: white;
+  font-size: 24px;
+  border: none;
+  outline: none;
 }
-.btn-light:hover, .btn-light:active {
-  background-color: transparent;
-  border-color: transparent;
+.plus-minus:focus {
+  outline: none;
 }
-.timer-area {
+.reset-btn {
+  background: white;
+  border-radius: 5px;
+  margin-top: 60px;
+  outline: none;
+}
+.reset-btn:focus {
+  outline: none;
+}
+#timer-area {
   display: block;
-  text-align: center;
-  padding: 30px 0 30px 0;
+  background: linear-gradient(white 0%, white 100%);
+  color: black;
+  height: 250px;
+  width: 200px;
+  box-shadow: 0 0 0 5px black;
+  border: 2px solid white;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  margin: 50px auto;
+  padding: 80px 0;
 }
-.progress {
-  height: 50px;
+#timer-title, #timer {
   text-align: center;
+  font-weight: 700;
 }

@@ -8,7 +8,7 @@ $(document).ready(() => {
     $("#session-time").html("25");
     $("#timer-title").html("Session");
     $("#timer").html("25:00");
-    $("#timer-progress").attr({"style": "width: 0%", "aria-valuenow": "0"})
+    $("#timer-area").css("background", "linear-gradient(white 0%, white 100%)");
     clearInterval(countdown);
     startTimer = false;
   });
@@ -59,7 +59,7 @@ $(document).ready(() => {
     $("#timer").html(num + ":00");
   });
   
-  $(".timer-area").on('click', () => {
+  $("#timer-area").on('click', () => {
     if(!startTimer) {
       startTimer = true;
       sessionSeconds = parseInt($("#session-time").html()) * 60;
@@ -78,49 +78,46 @@ $(document).ready(() => {
   
   function countdownTimer() {
     if($("#timer-title").html() === "Session") {
-      sessionSeconds--;
-      let perc = (1 - sessionSeconds/totalSession) * 100;
-      let min = Math.floor(sessionSeconds / 60);
-      let seconds = sessionSeconds % 60;
-      if(min < 10) {
-        min = "0" + min.toString()
-      }
-      if(seconds < 10) {
-        seconds = "0" + seconds.toString()
-      }
-      $("#timer").html(min + ":" + seconds);
-      $("#timer-progress").attr({"style": "width: " + perc.toString() + "%", "aria-valuenow": perc.toString()})
       if(sessionSeconds === 0) {
         console.log('Session done');
         $("#timer-title").html("Break!");
         $("#timer").html(breakSeconds / 60 + ":00");
-        $("#timer-progress").removeClass("bg-success");
-        $("#timer-progress").addClass("bg-danger");
-        $("#timer-progress").attr({"style": "width: 0%", "aria-valuenow": "0"})
+        $("#timer-area").css("background", "linear-gradient(white 0%, white 100%)");
         sessionSeconds = parseInt($("#session-time").html()) * 60;
+      } else {
+        sessionSeconds--;
+        let perc = (sessionSeconds/totalSession) * 100;
+        let min = Math.floor(sessionSeconds / 60);
+        let seconds = sessionSeconds % 60;
+        if(min < 10) {
+          min = "0" + min.toString()
+        }
+        if(seconds < 10) {
+          seconds = "0" + seconds.toString()
+        }
+        $("#timer").html(min + ":" + seconds);
+        $("#timer-area").css("background", "linear-gradient(white 0%, white " + perc + "%, rgb(57, 229, 22) " + perc + "%, rgb(57, 229, 22) 100%");
       }
     } else {
-      breakSeconds--;
-      let perc = (1 - breakSeconds/totalBreak) * 100;
-      let min = Math.floor(breakSeconds / 60);
-      let seconds = breakSeconds % 60;
-      if(min < 10) {
-        min = "0" + min.toString()
-      }
-      if(seconds < 10) {
-        seconds = "0" + seconds.toString()
-      }
-      $("#timer").html(min + ":" + seconds);
-      $("#timer-progress").attr({"style": "width: " + perc.toString() + "%", "aria-valuenow": perc.toString()})
       if(breakSeconds === 0) {
         console.log('Break done');
         $("#timer-title").html("Session");
         $("#timer").html(sessionSeconds / 60 + ":00");
         breakSeconds = parseInt($("#break-time").html()) * 60;
-        $("#timer-progress").addClass("bg-success");
-        $("#timer-progress").removeClass("bg-danger");
-        $("#timer-progress").attr({"style": "width: 0%", "aria-valuenow": "0"})
-        sessionSeconds = parseInt($("#session-time").html()) * 60;
+        $("#timer-area").css("background", "linear-gradient(white 0%, white 100%)");
+      } else {
+        breakSeconds--;
+        let perc = (breakSeconds/totalBreak) * 100;
+        let min = Math.floor(breakSeconds / 60);
+        let seconds = breakSeconds % 60;
+        if(min < 10) {
+          min = "0" + min.toString()
+        }
+        if(seconds < 10) {
+          seconds = "0" + seconds.toString()
+        }
+        $("#timer").html(min + ":" + seconds);
+        $("#timer-area").css("background", "linear-gradient(white 0%, white " + perc + "%, rgb(33, 243, 255) " + perc + "%, rgb(33, 243, 255) 100%");
       }
     }
   }
